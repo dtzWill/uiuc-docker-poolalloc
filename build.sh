@@ -1,6 +1,7 @@
 #!/bin/bash
 
-docker run --name llvm-git-build \
+docker -H tcp://localhost \
+  run --name llvm-git-build \
   -i -t \
   -v $PWD/llvm:/src/llvm \
   -v $PWD/clang:/src/clang \
