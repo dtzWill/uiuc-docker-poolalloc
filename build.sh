@@ -24,6 +24,7 @@ make -j$(nproc)
 make check
 make test -C /llvm/build/projects/poolalloc/test
 make install
+exit
 EOF
 
 $DOCKER logs -f llvm-git-build
