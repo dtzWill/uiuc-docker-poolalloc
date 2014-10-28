@@ -22,7 +22,7 @@ cd /llvm/build
 /llvm/src/configure --enable-optimized --prefix=/llvm/install
 make -j$(nproc)
 make check
-make check -C /llvm/build/projects/poolalloc
+make test -C /llvm/build/projects/poolalloc/test
 make install
 EOF
 
