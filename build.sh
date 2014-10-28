@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set +x
+
 docker -H tcp://localhost:4243 \
   run --name llvm-git-build \
   -i -t \
@@ -8,7 +10,7 @@ docker -H tcp://localhost:4243 \
   -v $PWD/compiler-rt:/src/compiler-rt \
   -v $PWD/poolalloc:/src/poolalloc \
   \
-  wdtz/llvm-test /bin/bash << EOF
+  wdtz/llvm-git-base/bin/bash << EOF
 mkdir -p /llvm/build
 ln -sf /src/llvm /llvm/src
 ln -sf /src/clang /llvm/src/tools/
