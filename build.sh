@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker -H tcp://localhost \
+docker -H tcp://localhost:4243 \
   run --name llvm-git-build \
   -i -t \
   -v $PWD/llvm:/src/llvm \
