@@ -2,8 +2,9 @@
 
 set -xe
 
-docker -H tcp://localhost:4243 \
-  run --name llvm-git-build \
+DOCKER="docker -H tcp://localhost:4243"
+
+$DOCKER run --name llvm-git-build \
   -i -t \
   -v $PWD/llvm:/src/llvm \
   -v $PWD/clang:/src/clang \
@@ -25,7 +26,7 @@ make check -C /llvm/build/projects/poolalloc
 make install
 EOF
 
-docker logs -f llvm-git-build
-docker wait llvm-git-build
-docker commit llvm-git-build wdtz/llvm-git
-docker rm llvm-git-build
+$DOCKER logs -f llvm-git-build
+$DOCKER wait llvm-git-build
+$DOCKER commit llvm-git-build wdtz/llvm-git
+$DOCKER rm llvm-git-build
